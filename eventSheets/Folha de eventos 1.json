@@ -1,0 +1,266 @@
+{
+	"name": "Folha de eventos 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 806470539029207
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 812621435061411
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Hero",
+					"sid": 216640776763105,
+					"parameters": {
+						"x": "mouse.x",
+						"y": "mouse.y"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Texto",
+					"sid": 327010017878359,
+					"parameters": {
+						"text": "\"Score: \" & Score"
+					}
+				}
+			],
+			"sid": 519197863265825
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "mouse",
+					"sid": 999943251331227,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Hero",
+					"sid": 564657120913725,
+					"parameters": {
+						"object": "bulletfish",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 570643593218227
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bulletfish",
+					"sid": 805555928507858,
+					"parameters": {
+						"object": "Enemy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Enemy",
+					"sid": 530057566668633,
+					"parameters": {
+						"instance-variable": "Health",
+						"value": "1"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "bulletfish",
+					"sid": 439367144473296,
+					"parameters": {
+						"object": "enemyDead",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "bulletfish",
+					"sid": 301172980589807
+				}
+			],
+			"sid": 242710390038155
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 348938964126935
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "Enemy",
+					"sid": 605522033308459,
+					"parameters": {
+						"angle": "360"
+					}
+				}
+			],
+			"sid": 843908804428871
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "Enemy",
+					"sid": 989441189766100
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Enemy",
+					"sid": 204269615576834,
+					"parameters": {
+						"x": "Hero.x",
+						"y": "Hero.Y"
+					}
+				}
+			],
+			"sid": 262094391250304
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Enemy",
+					"sid": 952130123306571,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Enemy",
+					"sid": 444310658767352,
+					"parameters": {
+						"object": "enemyDead",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Enemy",
+					"sid": 758596464803265
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 568689667544639,
+					"parameters": {
+						"variable": "Score",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 803989072581676
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 449743548289619,
+					"parameters": {
+						"interval-seconds": "3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 336616088946270,
+					"parameters": {
+						"object-to-create": "Enemy",
+						"layer": "0",
+						"x": "LayoutWidth + 100",
+						"y": "random(LayoutHeight)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 246196377128980
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Enemy",
+					"sid": 115455871390701,
+					"parameters": {
+						"object": "Hero"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Hero",
+					"sid": 324536971086537
+				}
+			],
+			"sid": 643821099697211
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 148219307964633
+				}
+			],
+			"actions": [],
+			"sid": 181685046994306
+		}
+	],
+	"sid": 867694975018554
+}

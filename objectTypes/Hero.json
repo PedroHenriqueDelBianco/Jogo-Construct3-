@@ -1,0 +1,76 @@
+{
+	"name": "Hero",
+	"plugin-id": "Sprite",
+	"sid": 680022549361096,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direções",
+			"sid": 741251905184290
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "CentrarEm",
+			"sid": 768190912187251
+		},
+		{
+			"behaviorId": "bound",
+			"name": "RestritoAoLayout",
+			"sid": 304578430035631
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1184,
+						"height": 1184,
+						"originX": 0.9991554054054054,
+						"originY": 0.4856418918918919,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 638220,
+						"collisionPoly": {
+							"points": [
+								0.9375,
+								0.4375,
+								0.9375,
+								0.5625,
+								0.71875,
+								0.84375,
+								0.59375,
+								0.9375,
+								0.09375,
+								0.84375,
+								0.09375,
+								0.15625,
+								0.625,
+								0.0625,
+								0.71875,
+								0.15625
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 563056121684951,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
